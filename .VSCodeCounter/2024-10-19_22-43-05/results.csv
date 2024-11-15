@@ -1,0 +1,31 @@
+"filename", "language", "JavaScript", "Properties", "CSS", "JSON", "Markdown", "HTML", "XML", "comment", "blank", "total"
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\.env", "Properties", 0, 2, 0, 0, 0, 0, 0, 0, 0, 2
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\README.md", "Markdown", 0, 0, 0, 0, 5, 0, 0, 0, 4, 9
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\eslint.config.js", "JavaScript", 37, 0, 0, 0, 0, 0, 0, 0, 2, 39
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\index.html", "HTML", 0, 0, 0, 0, 0, 13, 0, 0, 1, 14
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\package-lock.json", "JSON", 0, 0, 0, 7569, 0, 0, 0, 0, 1, 7570
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\package.json", "JSON", 0, 0, 0, 46, 0, 0, 0, 0, 1, 47
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\postcss.config.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 0, 1, 7
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\public\vite.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 1
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\App.jsx", "JavaScript", 31, 0, 0, 0, 0, 0, 0, 0, 3, 34
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\assets\email.json", "JSON", 0, 0, 0, 1, 0, 0, 0, 0, 0, 1
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\assets\react.svg", "XML", 0, 0, 0, 0, 0, 0, 1, 0, 0, 1
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\index.css", "CSS", 0, 0, 9, 0, 0, 0, 0, 0, 2, 11
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\main.jsx", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 0, 2, 11
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Dashboard\Dashboard.jsx", "JavaScript", 183, 0, 0, 0, 0, 0, 0, 3, 7, 193
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Documents\MyDocuments.jsx", "JavaScript", 183, 0, 0, 0, 0, 0, 0, 3, 8, 194
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Layout.jsx", "JavaScript", 211, 0, 0, 0, 0, 0, 0, 29, 31, 271
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Profile\Profile.jsx", "JavaScript", 241, 0, 0, 0, 0, 0, 0, 0, 13, 254
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Reusable\Loading.jsx", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 0, 1, 10
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Upload\PdfCover.jsx", "JavaScript", 16, 0, 0, 0, 0, 0, 0, 1, 4, 21
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Upload\UploadDocument.jsx", "JavaScript", 269, 0, 0, 0, 0, 0, 0, 9, 29, 307
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Author.jsx", "JavaScript", 114, 0, 0, 0, 0, 0, 0, 0, 8, 122
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Document.jsx", "JavaScript", 100, 0, 0, 0, 0, 0, 0, 0, 11, 111
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Index.jsx", "JavaScript", 88, 0, 0, 0, 0, 0, 0, 0, 12, 100
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Search.jsx", "JavaScript", 209, 0, 0, 0, 0, 0, 0, 0, 6, 215
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Login\Login.jsx", "JavaScript", 107, 0, 0, 0, 0, 0, 0, 0, 13, 120
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Login\Recover.jsx", "JavaScript", 115, 0, 0, 0, 0, 0, 0, 0, 16, 131
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Login\SignUp.jsx", "JavaScript", 301, 0, 0, 0, 0, 0, 0, 1, 34, 336
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\tailwind.config.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 1, 0, 11
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\vite.config.js", "JavaScript", 5, 0, 0, 0, 0, 0, 0, 1, 2, 8
+"Total", "-", 2244, 2, 9, 7616, 5, 13, 2, 48, 212, 10151

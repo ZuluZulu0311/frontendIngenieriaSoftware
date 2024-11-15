@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    overflow-y: hidden;
+}
+
+#container .e-pv-viewer-container {
+    background-color: yellow;
+}

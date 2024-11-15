@@ -1,0 +1,21 @@
+"filename", "language", "JavaScript", "Properties", "JSON", "comment", "blank", "total"
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\.env", "Properties", 0, 5, 0, 0, 4, 9
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\package-lock.json", "JSON", 0, 0, 1592, 0, 0, 1592
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\package.json", "JSON", 0, 0, 12, 0, 0, 12
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\App.jsx", "JavaScript", 8, 0, 0, 0, 3, 11
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\assets\loading.json", "JSON", 0, 0, 1, 0, 0, 1
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\encryption.js", "JavaScript", 30, 0, 0, 2, 5, 37
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Dashboard\Dashboard.jsx", "JavaScript", 1, 0, 0, 0, 2, 3
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Documents\MyDocuments.jsx", "JavaScript", 243, 0, 0, 35, 23, 301
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Layout.jsx", "JavaScript", 14, 0, 0, -27, -2, -15
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Upload\PdfCover.jsx", "JavaScript", -16, 0, 0, -1, -4, -21
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Upload\UploadDocument.jsx", "JavaScript", 161, 0, 0, -1, 37, 197
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Upload\convertPdfToPng.jsx", "JavaScript", 40, 0, 0, 5, 12, 57
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Author.jsx", "JavaScript", 37, 0, 0, 1, 11, 49
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Document.jsx", "JavaScript", 151, 0, 0, 3, 31, 185
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Index.jsx", "JavaScript", 103, 0, 0, 0, 6, 109
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Search.jsx", "JavaScript", 101, 0, 0, 4, 25, 130
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Login\Login.jsx", "JavaScript", 48, 0, 0, 1, 6, 55
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Login\SignUp.jsx", "JavaScript", -1, 0, 0, 0, -1, -2
+"c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\vite.config.js", "JavaScript", 1, 0, 0, 0, 0, 1
+"Total", "-", 921, 5, 1605, 22, 158, 2711

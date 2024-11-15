@@ -1,0 +1,57 @@
+Date : 2024-10-23 21:45:27
+Directory : c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC
+Total : 19 files,  2531 codes, 22 comments, 158 blanks, all 2711 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          3 |      1,605 |          0 |          0 |      1,605 |
+| JavaScript |         15 |        921 |         22 |        154 |      1,097 |
+| Properties |          1 |          5 |          0 |          4 |          9 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                        | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                           |         19 |      2,531 |         22 |        158 |      2,711 |
+| . (Files)                                                                                   |          4 |      1,610 |          0 |          4 |      1,614 |
+| src                                                                                         |         15 |        921 |         22 |        154 |      1,097 |
+| src (Files)                                                                                 |          2 |         38 |          2 |          8 |         48 |
+| src\assets                                                                                  |          1 |          1 |          0 |          0 |          1 |
+| src\pages                                                                                   |         12 |        882 |         20 |        146 |      1,048 |
+| src\pages\App                                                                               |          6 |        443 |         11 |         68 |        522 |
+| src\pages\App (Files)                                                                       |          1 |         14 |        -27 |         -2 |        -15 |
+| src\pages\App\Dashboard                                                                     |          1 |          1 |          0 |          2 |          3 |
+| src\pages\App\Documents                                                                     |          1 |        243 |         35 |         23 |        301 |
+| src\pages\App\Upload                                                                        |          3 |        185 |          3 |         45 |        233 |
+| src\pages\Home                                                                              |          4 |        392 |          8 |         73 |        473 |
+| src\pages\Login                                                                             |          2 |         47 |          1 |          5 |         53 |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                    | language   | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\.env                                     | Properties |          5 |          0 |          4 |          9 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\package-lock.json                        | JSON       |      1,592 |          0 |          0 |      1,592 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\package.json                             | JSON       |         12 |          0 |          0 |         12 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\App.jsx                              | JavaScript |          8 |          0 |          3 |         11 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\assets\loading.json                  | JSON       |          1 |          0 |          0 |          1 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\encryption.js                        | JavaScript |         30 |          2 |          5 |         37 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Dashboard\Dashboard.jsx    | JavaScript |          1 |          0 |          2 |          3 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Documents\MyDocuments.jsx  | JavaScript |        243 |         35 |         23 |        301 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Layout.jsx                 | JavaScript |         14 |        -27 |         -2 |        -15 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Upload\PdfCover.jsx        | JavaScript |        -16 |         -1 |         -4 |        -21 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Upload\UploadDocument.jsx  | JavaScript |        161 |         -1 |         37 |        197 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\App\Upload\convertPdfToPng.jsx | JavaScript |         40 |          5 |         12 |         57 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Author.jsx                | JavaScript |         37 |          1 |         11 |         49 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Document.jsx              | JavaScript |        151 |          3 |         31 |        185 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Index.jsx                 | JavaScript |        103 |          0 |          6 |        109 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Home\Search.jsx                | JavaScript |        101 |          4 |         25 |        130 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Login\Login.jsx                | JavaScript |         48 |          1 |          6 |         55 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\src\pages\Login\SignUp.jsx               | JavaScript |         -1 |          0 |         -1 |         -2 |
+| c:\Users\USUARIO\Music\Apps Factory\DoctTIC\DocTIC\vite.config.js                           | JavaScript |          1 |          0 |          0 |          1 |
+| Total                                                                                       |            |      2,531 |         22 |        158 |      2,711 |
++---------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
