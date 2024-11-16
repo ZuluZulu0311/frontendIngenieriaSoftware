@@ -33,11 +33,9 @@ function Document() {
     useEffect(() => {
         const encryptedUserData = localStorage.getItem("sam12mdqow");
         let userDataLocal = null;
-        console.log("ME ESTAS LLAMANDO")
         if (encryptedUserData) {
             userDataLocal = decryptUserData(encryptedUserData);
             setUserData(userDataLocal);
-            console.log(userDataLocal);
         } else {
             setUserData(null);
         }
@@ -45,14 +43,10 @@ function Document() {
         const fetchDocument = async () => {
             try {
                 setLoading(true);
-                console.log(userDataLocal);
                 const response = await axios.post(`${API_URL}/documentos/verDocumento/${id}`, {
                     userId: userDataLocal?.id || null
                 });
-
-                console.log(id);
                 setDocumentData(response.data);
-                console.log(response);
             } catch (err) {
                 console.error("Error fetching document data:", err);
                 setError("No se pudo cargar el documento. Intente nuevamente más tarde.");
@@ -67,7 +61,7 @@ function Document() {
     if (loading) {
         return (
             <div className="flex items-center justify-center h-screen">
-                <Lottie animationData={loadingAnimation} className='w-48' loop={true} />
+                <Lottie animationData={loadingAnimation} className="w-48" loop={true} />
             </div>
         );
     }
@@ -79,24 +73,23 @@ function Document() {
     }
 
     return (
-        documentData && userData ? (
-            <div className='h-screen w-full bg-[#FBFBFB]'>
+        documentData ? (
+            <div className="h-screen w-full bg-[#FBFBFB]">
                 <Navbar userData={userData} />
                 <div className="flex h-screen mt-5">
-                    <Sidebar documentData={documentData[0]} />
+                    <Sidebar documentData={documentData[0]} userData={userData} />
                     <div className="flex-grow">
-                        <DocumentViewer title={documentData[0].titulo} documentUrl={documentData[0].URL} userData={userData} fileId={idDocument} />
+                        <DocumentViewer
+                            title={documentData[0].titulo}
+                            documentUrl={documentData[0].URL}
+                            userData={userData}
+                            fileId={idDocument}
+                        />
                     </div>
-
                     <Comments idDocument={idDocument} userData={userData} />
                 </div>
             </div>
-        ) : (
-            <div className="flex-grow">
-                <DocumentViewer title={documentData[0].titulo} documentUrl={documentData[0].URL} userData={userData} fileId={idDocument} />
-            </div>
-
-        )
+        ) : null
     );
 }
 
@@ -212,11 +205,8 @@ function Navbar({ userData }) {
         </div>
     );
 }
-function Sidebar({ documentData }) {
+function Sidebar({ documentData, userData }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const [isReportModalOpen, setIsReportModalOpen] = useState(false);
-    const [razon, setRazon] = useState('');
 
     const authors = documentData.infoAutores || [];
     const authorCount = authors.length;
@@ -226,49 +216,28 @@ function Sidebar({ documentData }) {
 
     const promedioPuntuacion = numValoraciones > 0
         ? (documentData.valoraciones.reduce((sum, val) => sum + val.puntuacion, 0) / numValoraciones).toFixed(1)
-        : '0';
-    const API_URL = import.meta.env.VITE_API_URL;
-    const [isLoading, setIsLoading] = useState(false)
+        : "0";
+
     const handleOpenModal = () => setIsModalOpen(true);
     const handleCloseModal = () => setIsModalOpen(false);
 
-    const handleOpenReportModal = () => setIsReportModalOpen(true);
-    const handleCloseReportModal = () => setIsReportModalOpen(false);
-
-    const handleReportSubmit = async () => {
-        setIsLoading(true)
-        try {
-            await axios.post(`${API_URL}/documentos/reportar`, {
-                documentoId: documentData._id,
-                razon,
-            });
-            setIsReportModalOpen(false);
-            setRazon('');
-            toast.success('Documento reportado exitosamente');
-        } catch (error) {
-            console.error('Error al reportar el documento:', error);
-            toast.error('Hubo un error al intentar reportar el documento.');
-        }
-        setIsLoading(false)
-    };
-
     return (
         <div className="w-1/4 pl-10 pr-14 pt-12 bg-white">
-            <Toaster richColors position='top-center' />
-            <div className='flex gap-2 text-[#596280]'>
-                <div className='flex items-center justify-center gap-1'>
+            <Toaster richColors position="top-center" />
+            <div className="flex gap-2 text-[#596280]">
+                <div className="flex items-center justify-center gap-1">
                     <FaEye />
                     {numVisualizaciones}
                 </div>
-                <div className='flex items-center justify-center gap-1'>
+                <div className="flex items-center justify-center gap-1">
                     <FaDownload />
                     {numDescargas}
                 </div>
-                <div className='flex items-center justify-center gap-1'>
+                <div className="flex items-center justify-center gap-1">
                     <FaRegCommentDots />
                     {numValoraciones}
                 </div>
-                <div className='flex items-center justify-center gap-1'>
+                <div className="flex items-center justify-center gap-1">
                     <FaRegStar />
                     {promedioPuntuacion}
                 </div>
@@ -276,7 +245,7 @@ function Sidebar({ documentData }) {
             <h2 className="text-2xl font-bold mb-4">{documentData.titulo || "Sin título"}</h2>
             {authorCount > 0 && (
                 <p className="text-sm text-[#596280] font-semibold">
-                    {authorCount === 1 ? 'Autor: ' : 'Autores: '}
+                    {authorCount === 1 ? "Autor: " : "Autores: "}
                     {authors.map((author, index) => (
                         <span key={index}>
                             {author.registrado ? (
@@ -286,13 +255,17 @@ function Sidebar({ documentData }) {
                             ) : (
                                 <span>{author.nombreCompleto}</span>
                             )}
-                            {index < authorCount - 1 && ', '}
+                            {index < authorCount - 1 && ", "}
                         </span>
                     ))}
                 </p>
             )}
-            <p className="text-sm text-[#596280] font-medium mt-2">Cargado el {new Date(documentData.fechaPublicacion).toLocaleDateString() || "Fecha desconocida"}</p>
-            <p className="text-sm text-[#596280] font-medium mt-2">Última modificación: {new Date(documentData.fechaUltimaModificacion).toLocaleDateString() || "Fecha desconocida"}</p>
+            <p className="text-sm text-[#596280] font-medium mt-2">
+                Cargado el {new Date(documentData.fechaPublicacion).toLocaleDateString() || "Fecha desconocida"}
+            </p>
+            <p className="text-sm text-[#596280] font-medium mt-2">
+                Última modificación: {new Date(documentData.fechaUltimaModificacion).toLocaleDateString() || "Fecha desconocida"}
+            </p>
             <div className="my-4">
                 <h3 className="text-lg font-semibold text-black">Descripción</h3>
                 <p className="text-sm text-gray-700">
@@ -307,58 +280,28 @@ function Sidebar({ documentData }) {
                     Ver descripción completa
                 </p>
             </div>
-            <div className='my-4'>
+            <div className="my-4">
                 <h3 className="text-lg font-semibold text-black">Categoría</h3>
                 <p className="text-sm text-gray-700 mt-2">
                     {documentData.categoria.map((cat, index) => (
                         <span key={index}>
                             {cat.categoriaNombre}
-                            {index < documentData.categoria.length - 1 && ', '}
+                            {index < documentData.categoria.length - 1 && ", "}
                         </span>
                     ))}
                 </p>
             </div>
-            <p className="text-[#4B3DE3] underline mt-48 flex items-center cursor-pointer" onClick={handleOpenReportModal}>
-                <MdReport className="mr-2 text-lg" /> Reportar documento
-            </p>
+            {userData ? (
+                <p className="text-[#4B3DE3] underline mt-48 flex items-center cursor-pointer">
+                    <MdReport className="mr-2 text-lg" /> Reportar documento
+                </p>
+            ) : null}
 
-            {/* Modal de Descripción Completa */}
             {isModalOpen && (
                 <Modal
                     description={documentData.descripcion}
                     onClose={handleCloseModal}
                 />
-            )}
-
-            {/* Modal de Reporte de Documento */}
-            {isReportModalOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                    <div className="bg-white p-6 rounded-lg shadow-lg w-80">
-                        <h2 className="text-lg font-semibold mb-4">Reportar Documento</h2>
-                        <p className="mb-4 text-gray-700">Por favor, describe la razón para reportar este documento por plagio:</p>
-                        <textarea
-                            value={razon}
-                            onChange={(e) => setRazon(e.target.value)}
-                            className="w-full p-2 border border-gray-300 rounded"
-                            placeholder="Escribe la razón aquí"
-                        />
-                        <div className="flex justify-end gap-3 mt-4">
-                            <button
-                                onClick={handleCloseReportModal}
-                                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition"
-                            >
-                                Cancelar
-                            </button>
-                            <button
-                                onClick={handleReportSubmit}
-                                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
-                                disabled={!razon.trim()}
-                            >
-                                {isLoading ? <Loading /> : 'Enviar'}
-                            </button>
-                        </div>
-                    </div>
-                </div>
             )}
         </div>
     );
@@ -591,79 +534,104 @@ function Comments({ idDocument, userData }) {
     };
 
     return (
-        <div className="w-1/5 p-4 bg-white h-screen overflow-y-auto">
+        <div className="w-1/5 p-4 bg-white h-full flex flex-col">
             <Toaster richColors position='top-center' />
 
-            {showRating && (
-                <div className="flex gap-1 mb-4">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                        <FaStar
-                            key={star}
-                            onClick={() => handleRatingClick(star)}
-                            className={`cursor-pointer mt-14 text-2xl ${star <= rating ? 'text-yellow-400' : 'text-gray-300'}`}
-                        />
-                    ))}
-                </div>
-            )}
-            <textarea
-                className={`border border-[#D6D6D6] bg-white w-full ${showRating ? 'mt-1' : 'mt-14'} px-4 py-3 mb-2 rounded-[8px]`}
-                placeholder="Escribe tu comentario"
-                value={commentText}
-                onChange={handleCommentChange}
-                onFocus={() => setShowRating(true)}
-            />
-
-            <button
-                onClick={handleSubmitComment}
-                className={`w-full text-white py-4 rounded-lg text-base font-semibold transition duration-300 
-                            bg-[#4B3DE3] hover:bg-[#3D33AE] h-10 mb-8 flex items-center justify-center`}
-            >
-                {isEditing ? "Actualizar Comentario" : "Comentar"}
-            </button>
-
-            {comments.length === 0 || (comments.length === 1 && Object.keys(comments[0]).length === 0) ? (
-                <p className="text-left text-gray-500 mt-4">
-                    ¡Aún no se han publicado valoraciones! <br /> Sé el primero en dejar tu opinión.
-                </p>
-            ) : (
-                comments
-                    .map((comment) => (
-                        <div key={comment.idValoracion} className="flex gap-5">
-                            <img
-                                src={`https://ui-avatars.com/api/?name=${comment.nombreCliente}&size=40&background=4891E0&color=fff`}
-                                alt="Avatar"
-                                className="w-12 h-12 rounded-full"
-                            />
-                            <div className="mb-4 shadow-md border border-[#E9E9E9] py-4 px-5 rounded-tr-[28px] rounded-b-[28px] relative w-56">
-                                <h4 className="font-bold text-lg mb-2">{comment.nombreCliente}</h4>
-                                <p className="text-sm text-gray-700">{comment.comentario}</p>
-                                <span className="text-xs text-gray-500">
-                                    {new Date(comment.fecha).toLocaleDateString()}
-                                </span>
-                                <div className="flex mt-2">
-                                    {[1, 2, 3, 4, 5].map((star) => (
-                                        <FaStar
-                                            key={star}
-                                            className={`text-lg ${star <= Number(comment.puntuacion) ? 'text-yellow-400' : 'text-gray-300'}`}
-                                        />
-                                    ))}
-                                </div>
-                                {comment.clienteId === userData.id && (
-                                    <div className="absolute top-2 right-2 flex gap-2">
-                                        <FaRegEdit
-                                            onClick={() => handleEditComment(comment)}
-                                            className="cursor-pointer text-xl text-blue-500 hover:text-blue-700"
-                                        />
-                                        <FaRegTrashAlt
-                                            onClick={() => confirmDeleteComment(comment.idValoracion)}
-                                            className="cursor-pointer text-xl text-red-500 hover:text-red-700"
-                                        />
-                                    </div>
-                                )}
-                            </div>
+            {/* Comentario y calificación para usuarios autenticados */}
+            {userData ? (
+                <>
+                    {showRating && (
+                        <div className="flex gap-1 mb-4">
+                            {[1, 2, 3, 4, 5].map((star) => (
+                                <FaStar
+                                    key={star}
+                                    onClick={() => handleRatingClick(star)}
+                                    className={`cursor-pointer mt-14 text-2xl ${star <= rating ? 'text-yellow-400' : 'text-gray-300'}`}
+                                />
+                            ))}
                         </div>
-                    ))
+                    )}
+                    <textarea
+                        className={`border border-[#D6D6D6] bg-white w-full ${showRating ? 'mt-1' : 'mt-14'} px-4 py-3 mb-2 rounded-[8px]`}
+                        placeholder="Escribe tu comentario"
+                        value={commentText}
+                        onChange={handleCommentChange}
+                        onFocus={() => setShowRating(true)}
+                    />
+                    <button
+                        onClick={handleSubmitComment}
+                        className="w-full text-white py-4 rounded-lg text-base font-semibold transition duration-300 
+                                    bg-[#4B3DE3] hover:bg-[#3D33AE] h-10 mb-8 flex items-center justify-center"
+                    >
+                        {isEditing ? "Actualizar Comentario" : "Comentar"}
+                    </button>
+                </>
+            ) : (
+                <>
+                    {/* Área de comentario deshabilitada para usuarios no autenticados */}
+                    <textarea
+                        className="border border-[#D6D6D6] bg-gray-100 w-full mt-14 px-4 py-3 mb-2 rounded-[8px] cursor-not-allowed"
+                        placeholder="Inicia sesión para dejar un comentario"
+                        disabled
+                    />
+                    <button
+                        className="w-full text-white py-4 rounded-lg text-base font-semibold transition duration-300 
+                                    bg-gray-300 cursor-not-allowed h-10 mb-8 flex items-center justify-center"
+                        disabled
+                    >
+                        Comentar
+                    </button>
+                </>
             )}
+
+            {/* Listado de comentarios */}
+            <div className="overflow-y-auto flex-grow max-h-[calc(100vh-200px)] pb-16">
+    {comments.length === 0 || (comments.length === 1 && Object.keys(comments[0]).length === 0) ? (
+        <p className="text-left text-gray-500 mt-4">
+            ¡Aún no se han publicado valoraciones! <br /> Sé el primero en dejar tu opinión.
+        </p>
+    ) : (
+        comments.map((comment) => (
+            <div key={comment.idValoracion} className="flex gap-5 mb-4">
+                <img
+                    src={`https://ui-avatars.com/api/?name=${comment.nombreCliente}&size=40&background=4891E0&color=fff`}
+                    alt="Avatar"
+                    className="w-12 h-12 rounded-full"
+                />
+                <div className="shadow-md border border-[#E9E9E9] py-4 px-5 rounded-tr-[28px] rounded-b-[28px] relative w-56">
+                    <h4 className="font-bold text-lg mb-2">{comment.nombreCliente}</h4>
+                    <p className="text-sm text-gray-700">{comment.comentario || "No se proporcionó un comentario"}</p>
+                    <span className="text-xs text-gray-500">
+                        {new Date(comment.fecha).toLocaleDateString()}
+                    </span>
+                    <div className="flex mt-2">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                            <FaStar
+                                key={star}
+                                className={`text-lg ${star <= Number(comment.puntuacion) ? 'text-yellow-400' : 'text-gray-300'}`}
+                            />
+                        ))}
+                    </div>
+                    {userData && comment.clienteId === userData.id && (
+                        <div className="absolute top-2 right-2 flex gap-2">
+                            <FaRegEdit
+                                onClick={() => handleEditComment(comment)}
+                                className="cursor-pointer text-xl text-blue-500 hover:text-blue-700"
+                            />
+                            <FaRegTrashAlt
+                                onClick={() => confirmDeleteComment(comment.idValoracion)}
+                                className="cursor-pointer text-xl text-red-500 hover:text-red-700"
+                            />
+                        </div>
+                    )}
+                </div>
+            </div>
+        ))
+    )}
+    {/* Espacio adicional al final para evitar que el último comentario se corte */}
+    <div className="pb-16"></div>
+</div>
+
 
             {showDeleteModal && (
                 <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
@@ -690,6 +658,8 @@ function Comments({ idDocument, userData }) {
         </div>
     );
 }
+
+
 
 
 function Modal({ description, onClose }) {
